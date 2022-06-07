@@ -3,17 +3,23 @@
 #include <chrono>
 using namespace std;
 
-void prime(int n)
+int prime(int n)
 {
     int i, j;
+    int k = 0;
     for (i = 2; i <= n; i++)
     {
         for (j = 2; j <= i; j++)
         {
             if (i % j == 0)
                 break;
+            if(j == i){
+                k++;
+            }
+                
         }
     }
+    return k;
 }
 
 int main(int argc, char** argv)
