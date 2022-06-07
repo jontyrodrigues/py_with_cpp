@@ -13,7 +13,12 @@ def run_program():
         output = subprocess.getoutput("runtime.exe" + " " + str(i*10000))
         # put the output in a list and into a csv file
         output_list = [str(i*10000), output]
-        with open('runtime.csv', 'a') as csvfile:
+        with open('cpp.csv', 'a') as csvfile:
+            csvfile.write(output_list[0] + "," + output_list[1] + "\n")
+        output = subprocess.getoutput("python runtime.py" + " " + str(i*10000))
+        # put the output in a list and into a csv file
+        output_list = [str(i*10000), output]
+        with open('py.csv', 'a') as csvfile:
             csvfile.write(output_list[0] + "," + output_list[1] + "\n")
 
 run_program()
